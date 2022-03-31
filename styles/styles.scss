@@ -61,31 +61,39 @@ section {
 .sec1 {
     display: none;
     transform: translateY(0) scale(1);
-    background-color: red;
 }
 
 .sec2 {
     display: none;
     transform: translateY(0) scale(1);
-    color: blue;
 }
 
 .sec3 {
     display: none;
     transform: translateY(0) scale(1);
-    color: green;
 }
 
 .sec4 {
     display: none;
     transform: translateY(0) scale(1);
-    color: yellow;
 }
 
 .sec5 {
     display: none;
     transform: translateY(0) scale(1);
-    color: violet;
+}
+
+.active {
+    display: block;
+    animation: scaleAnim 1s ease-in-out;
+    @keyframes scaleAnim {
+        0% {
+            transform: translateY(-100%) scale(0);
+        }
+        100% {
+            transform: translateY(0) scale(1);
+        }
+    }       
 }
 
 //Controlls
@@ -125,3 +133,39 @@ section {
         }
     }
 }
+
+/* Header-content */
+.header-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    .left-header {
+        display: flex;
+        align-items: center;
+        position: relative;
+        .h-shape {
+            transition: all .4s ease-in-out;
+            width: 65%;
+            height: 100%;
+            background-color: var(--color-secondary);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            clip-path: polygon(0 0, 46% 0, 79% 100%, 0 100%);
+        }
+        .image {
+            border-radius: var(--br-sm-2);
+            height: 90%;
+            width: 68%;
+            object-fit: cover;
+            transition: all .4s ease-in-out;
+            filter: grayscale(100%);
+            &:hover {
+                filter: grayscale(0);
+            }
+        }
+    }
+}
+
+/* Independed components */
